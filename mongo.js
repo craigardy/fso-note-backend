@@ -21,11 +21,11 @@ const noteSchema = new mongoose.Schema({
 // Define the model
 const Note = mongoose.model('Note', noteSchema)
 
-// Create new note object via Note model
-const note = new Note({
-  content: 'HTML is easy',
-  important: true,
-})
+// // Create new note object via Note model
+// const note = new Note({
+//   content: 'HTML is easy',
+//   important: true,
+// })
 
 // // Save the note to the database
 // note.save().then(result => {
@@ -33,13 +33,13 @@ const note = new Note({
 //   mongoose.connection.close()
 // })
 
-// // Retrieve ALL ({}) notes from database
-// Note.find({}).then(result => {
-//   result.forEach(note => {
-//     console.log(note)
-//   })
-//   mongoose.connection.close()
-// })
+// Retrieve ALL ({}) notes from database
+Note.find({}).then(result => {
+  result.forEach(note => {
+    console.log(note)
+  })
+  mongoose.connection.close()
+})
 
 // // Include only important notes
 // Note.find({ important: true }).then(result => {
